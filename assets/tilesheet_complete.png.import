@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TwoSideCorner.png-a2a09ceb5d5430a8aaca7219b716d9a3.stex"
+path="res://.import/tilesheet_complete.png-5f14f2929ff3d9b1c136ce3cca4823a1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TwoSideCorner.png"
-dest_files=[ "res://.import/TwoSideCorner.png-a2a09ceb5d5430a8aaca7219b716d9a3.stex" ]
+source_file="res://assets/tilesheet_complete.png"
+dest_files=[ "res://.import/tilesheet_complete.png-5f14f2929ff3d9b1c136ce3cca4823a1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
