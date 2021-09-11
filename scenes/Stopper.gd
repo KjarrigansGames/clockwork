@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Stopper
 
-func interact(player):
+func interact(_player):
     queue_free()

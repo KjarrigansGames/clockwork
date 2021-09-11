@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 const SPEED = 300
 const ROTATION_SPEED = 10;
@@ -32,12 +33,13 @@ func _physics_process(delta):
     velocity = move_and_slide(velocity)
     $PlayerTrail.paint_point()
 
-
 func _on_InteractionArea_area_entered(area):
     print("Interactable Object available!")
     interactable_object = area.get_parent()
 
-
 func _on_InteractionArea_area_exited(area):
     print("Interactable Object gone!")
     interactable_object = null
+
+func pick_up(object):
+    pass

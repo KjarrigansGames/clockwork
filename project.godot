@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "Pickup",
+"language": "GDScript",
+"path": "res://scenes/Pickup.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/Player.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Stopper",
+"language": "GDScript",
+"path": "res://scenes/Stopper.gd"
+} ]
+_global_script_class_icons={
+"Pickup": "",
+"Player": "",
+"Stopper": ""
+}
+
 [application]
 
 config/name="CLOCK"
