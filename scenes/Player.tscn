@@ -5,10 +5,11 @@
 [ext_resource path="res://scenes/PlayerTrail.gd" type="Script" id=3]
 [ext_resource path="res://assets/light.png" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 26.0
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 16.0
+height = 31.5
 
-[sub_resource type="SegmentShape2D" id=3]
+[sub_resource type="SegmentShape2D" id=4]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.519
@@ -25,8 +26,8 @@ __meta__ = {
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource( 4 )
+position = Vector2( 10, 0 )
+shape = SubResource( 5 )
 
 [node name="PlayerTrail" type="Line2D" parent="."]
 light_mask = 0
@@ -38,7 +39,7 @@ targetPath = NodePath("..")
 [node name="CollissionOwner" type="StaticBody2D" parent="PlayerTrail"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTrail/CollissionOwner"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 4 )
