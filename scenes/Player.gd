@@ -40,7 +40,7 @@ func _physics_process(delta):
     
     # "Animate" the picked up object by slightly rotating it every tick
     if pickup_object:
-       $PickupSprite.rotation += (ROTATION_SPEED * delta)
+       $PickupSprite.rotation += (2 * delta)
     
 func _on_InteractionArea_area_entered(area):
     print("Interactable Object available!")

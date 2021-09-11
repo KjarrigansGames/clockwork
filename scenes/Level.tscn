@@ -606,6 +606,7 @@ tile_data = PoolIntArray( 0, 0, 65541, 2, 0, 7, 3, 0, 196612, 4, 0, 196612, 5, 0
 
 [node name="Stopper" parent="." instance=ExtResource( 4 )]
 position = Vector2( 800, 736 )
+needs_item_type = "Gear"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
@@ -613,10 +614,7 @@ color = Color( 0.27451, 0.27451, 0.27451, 1 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 800, 640 )
 
-[node name="Pickup" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1440, 256 )
-
-[node name="Sprite" parent="Pickup" index="0"]
-texture = ExtResource( 5 )
-
-[editable path="Pickup"]
+[node name="Green Gear" parent="." instance=ExtResource( 6 )]
+position = Vector2( 960, 672 )
+item_texture = ExtResource( 5 )
+item_type = "Gear"
