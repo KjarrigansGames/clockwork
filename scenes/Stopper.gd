@@ -2,6 +2,10 @@ extends StaticBody2D
 class_name Stopper
 
 export var needs_item_type : String
+export var needs_item_texture : Texture
+
+func _ready():
+    $NeedsItemSprite.texture = needs_item_texture
 
 func interact(player):
     if (player.pickup_object && 
