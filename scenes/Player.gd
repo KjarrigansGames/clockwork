@@ -24,4 +24,4 @@ func _physics_process(delta):
 	rotation += rotation_direction * ROTATION_SPEED * delta
 
 	velocity = move_and_slide(velocity)
-
+	get_node("PlayerTrail").paint_point()
