@@ -5,6 +5,11 @@ const ROTATION_SPEED = 10;
 
 var velocity = Vector2.ZERO
 var rotation_direction = 0
+var interactable_object
+
+func _input(event):
+    if event.is_action_released("ui_interact") && interactable_object != null:
+        interactable_object.interact(self)
 
 func handle_input():
     rotation_direction = 0
@@ -24,4 +29,14 @@ func _physics_process(delta):
     rotation += rotation_direction * ROTATION_SPEED * delta
 
     velocity = move_and_slide(velocity)
-    get_node("PlayerTrail").paint_point()
+    $PlayerTrail.paint_point()
+
+
+func _on_InteractionArea_area_entered(area):
+    print("Interactable Object available!")
+    interactable_object = area.get_parent()
+
+
+func _on_InteractionArea_area_exited(area):
+    print("Interactable Object gone!")
+    interactable_object = null

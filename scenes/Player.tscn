@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
@@ -8,7 +8,12 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 31.0
 
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 24.519
+height = 21.6912
+
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 0.166855, -1 )
 rotation = 1.5708
 script = ExtResource( 2 )
 __meta__ = {
@@ -36,3 +41,18 @@ texture = ExtResource( 4 )
 texture_scale = 0.5
 shadow_enabled = true
 shadow_gradient_length = 1.0
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2( 10.5119, 0.166817 )
+collision_layer = 2
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_InteractionArea_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_InteractionArea_area_exited"]
