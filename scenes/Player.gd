@@ -26,7 +26,7 @@ func handle_input(delta: float):
 		rotation_direction += 1
 	if Input.is_action_pressed("ui_left"):
 		rotation_direction -= 1
-	if Input.is_action_pressed("ui_down") && int(delta) % 60 == 0 :
+	if Input.is_action_pressed("ui_down"):
 		move_back()
 		return
 	if Input.is_action_pressed("ui_up"):
