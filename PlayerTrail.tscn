@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/PlayerTrail.gd" type="Script" id=1]
+
+[node name="PlayerTrail" type="Line2D"]
+light_mask = 0
+points = PoolVector2Array( -0.688754, -0.676313 )
+default_color = Color( 0.87451, 0.443137, 0.14902, 1 )
+script = ExtResource( 1 )
+targetPath = NodePath("..")

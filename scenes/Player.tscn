@@ -6,14 +6,13 @@
 [ext_resource path="res://assets/light.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 31.0
+radius = 31.1156
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.519
 height = 21.6912
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0.166855, -1 )
 rotation = 1.5708
 script = ExtResource( 2 )
 __meta__ = {
