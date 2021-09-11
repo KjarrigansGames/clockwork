@@ -69,4 +69,3 @@ func drop():
     
     $PickupSprite.texture = null
     $PickupSprite.hide()
-

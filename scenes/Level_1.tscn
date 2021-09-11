@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,27 +7,8 @@
 [ext_resource path="res://assets/Gear_Green.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Pickup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Gear_Pink.png" type="Texture" id=7]
-[ext_resource path="res://assets/Start-Dock.png" type="Texture" id=8]
-
-[sub_resource type="AtlasTexture" id=96]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=97]
-atlas = ExtResource( 8 )
-region = Rect2( 256, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=98]
-atlas = ExtResource( 8 )
-region = Rect2( 512, 0, 256, 256 )
-
-[sub_resource type="SpriteFrames" id=99]
-animations = [ {
-"frames": [ SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-} ]
+[ext_resource path="res://scenes/Starter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Level_1.gd" type="Script" id=9]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -614,18 +595,19 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 0/z_index = 0
 
 [node name="Level" type="Node2D"]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -63.763, 206.903 )
-frames = SubResource( 99 )
-animation = "Idle"
-playing = true
+script = ExtResource( 9 )
+time_to_finish = 60
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.352941 )
 scale = Vector2( 1.0881, 0.859 )
 texture = ExtResource( 3 )
 centered = false
+
+[node name="Starter" parent="." instance=ExtResource( 8 )]
+position = Vector2( -224, 96 )
+scale = Vector2( 1.0881, 0.859 )
+frame = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
@@ -636,8 +618,7 @@ tile_data = PoolIntArray( 0, 0, 7, 1, 0, 196612, 2, 0, 196612, 3, 0, 196612, 4, 
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 192 )
-rotation = 0.0
+position = Vector2( 32, 224 )
 
 [node name="Obstacle-1" type="Node" parent="."]
 

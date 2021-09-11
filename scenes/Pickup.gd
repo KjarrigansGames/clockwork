@@ -18,4 +18,7 @@ func interact(player):
     get_parent().remove_child(self)
 
 func _physics_process(delta):
+    if GlobalState.is_paused():
+        return 
+        
     rotation += delta
