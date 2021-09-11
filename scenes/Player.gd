@@ -6,6 +6,7 @@ const ROTATION_SPEED = 10;
 var velocity = Vector2.ZERO
 var rotation_direction = 0
 var interactable_object
+var picked_up_object
 
 func _input(event):
     if event.is_action_released("ui_interact") && interactable_object != null:
