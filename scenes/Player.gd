@@ -18,7 +18,7 @@ func _input(event):
 	if event.is_action_released("ui_interact") && interactable_object != null:
 		interactable_object.interact(self)
 
-func handle_input(delta):
+func handle_input(delta: float):
 	rotation_direction = 0
 	velocity = Vector2.ZERO
 
@@ -26,7 +26,7 @@ func handle_input(delta):
 		rotation_direction += 1
 	if Input.is_action_pressed("ui_left"):
 		rotation_direction -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") && int(delta) % 60 == 0 :
 		move_back()
 		return
 	if Input.is_action_pressed("ui_up"):
