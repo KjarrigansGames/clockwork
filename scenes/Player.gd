@@ -6,8 +6,13 @@ const ROTATION_SPEED = 10;
 
 var velocity = Vector2.ZERO
 var rotation_direction = 0
+
 var interactable_object
-var picked_up_object
+var pickup_rotation = 0
+var pickup_object
+
+func _ready():
+    $PickupSprite.hide()
 
 func _input(event):
     if event.is_action_released("ui_interact") && interactable_object != null:
@@ -32,14 +37,29 @@ func _physics_process(delta):
 
     velocity = move_and_slide(velocity)
     $PlayerTrail.paint_point()
-
+    
+    # "Animate" the picked up object by slightly rotating it every tick
+    if pickup_object:
+       $PickupSprite.rotation += (ROTATION_SPEED * delta)
+    
 func _on_InteractionArea_area_entered(area):
     print("Interactable Object available!")
     interactable_object = area.get_parent()
 
-func _on_InteractionArea_area_exited(area):
+func _on_InteractionArea_area_exited(_area):
     print("Interactable Object gone!")
     interactable_object = null
 
-func pick_up(object):
-    pass
+func pick_up(object : Pickup):
+    pickup_object = object
+    
+    # Add sprite of the object to the pickup slot as visual indicator
+    $PickupSprite.texture = object.get_node("Sprite").texture
+    $PickupSprite.show()
+    
+func drop():
+    pickup_object.queue_free()
+    pickup_object = null
+    
+    $PickupSprite.texture = null
+    $PickupSprite.hide()
