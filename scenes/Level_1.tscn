@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/Powerup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Powerup.png" type="Texture" id=11]
 [ext_resource path="res://scenes/Level-End.tscn" type="PackedScene" id=12]
-[ext_resource path="res://PlayerTrail.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/PlayerTrail.tscn" type="PackedScene" id=13]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -614,7 +614,7 @@ centered = false
 [node name="Starter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -224, 96 )
 scale = Vector2( 1.0881, 0.859 )
-frame = 0
+frame = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
