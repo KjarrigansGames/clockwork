@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Powerup.png-9fd193df9aab85774b7cc73d1a929f3a.stex"
+path="res://.import/Level-End.png-6e805104d843cd165442aff94c96bd79.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Powerup.png"
-dest_files=[ "res://.import/Powerup.png-9fd193df9aab85774b7cc73d1a929f3a.stex" ]
+source_file="res://assets/Level-End.png"
+dest_files=[ "res://.import/Level-End.png-6e805104d843cd165442aff94c96bd79.stex" ]
 
 [params]
 

@@ -1,8 +1,9 @@
 extends StaticBody2D
-class_name Pickup
+class_name Powerup
 
 export var item_texture : Texture
-export var item_type : String
+export var speed_bonus : int
+const item_type = 'Powerup'
 
 func _ready():
     $Sprite.texture = item_texture
@@ -11,11 +12,6 @@ func interact(player):
     if player.pickup_object:
         player.drop() 
     
+    # Disable all the Stuff so it won't collide (pun intended) with anything
     player.pick_up(self)
     get_parent().remove_child(self)
-
-func _physics_process(delta):
-    if GlobalState.is_paused():
-        return 
-        
-    rotation += delta

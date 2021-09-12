@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://scenes/Player.gd"
 }, {
 "base": "StaticBody2D",
+"class": "Powerup",
+"language": "GDScript",
+"path": "res://scenes/Powerup.gd"
+}, {
+"base": "StaticBody2D",
 "class": "Stopper",
 "language": "GDScript",
 "path": "res://scenes/Stopper.gd"
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Pickup": "",
 "Player": "",
+"Powerup": "",
 "Stopper": ""
 }
 

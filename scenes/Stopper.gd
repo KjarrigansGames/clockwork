@@ -14,4 +14,5 @@ func interact(player):
         queue_free()
         return
     
+    print(player.pickup_object.name)
     print("You need a " + needs_item_type + " to remove that block.")

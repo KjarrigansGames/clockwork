@@ -1,8 +1,9 @@
 extends KinematicBody2D
 class_name Player
 
-const SPEED = 300
+const BASE_SPEED = 300
 const ROTATION_SPEED = 10;
+var speed
 
 var velocity = Vector2.ZERO
 var rotation_direction = 0
@@ -13,57 +14,70 @@ var pickup_object
 
 func _ready():
     $PickupSprite.hide()
+    speed = BASE_SPEED
 
 func _input(event):
-	if event.is_action_released("ui_interact") && interactable_object != null:
-		interactable_object.interact(self)
+    if GlobalState.is_paused():
+        return 
+    
+    if event.is_action_released("ui_interact") && interactable_object != null:
+        interactable_object.interact(self)
 
 func handle_input(delta: float):
-	rotation_direction = 0
-	velocity = Vector2.ZERO
+    rotation_direction = 0
+    velocity = Vector2.ZERO
 
-	if Input.is_action_pressed("ui_right"):
-		rotation_direction += 1
-	if Input.is_action_pressed("ui_left"):
-		rotation_direction -= 1
-	if Input.is_action_pressed("ui_down"):
-		move_back()
-		return
-	if Input.is_action_pressed("ui_up"):
-		velocity += transform.x * SPEED
+    if Input.is_action_pressed("ui_right"):
+        rotation_direction += 1
+    if Input.is_action_pressed("ui_left"):
+        rotation_direction -= 1
+    if Input.is_action_pressed("ui_down"):
+        move_back()
+        return
+    if Input.is_action_pressed("ui_up"):
+        velocity += transform.x * speed
 
-	rotation += rotation_direction * ROTATION_SPEED * delta
-	velocity = move_and_slide(velocity)
+    rotation += rotation_direction * ROTATION_SPEED * delta
+    velocity = move_and_slide(velocity)
 
     # "Animate" the picked up object by slightly rotating it every tick
-	if pickup_object:
-		$PickupSprite.rotation += (2 * delta)
+    if pickup_object:
+        $PickupSprite.rotation += (2 * delta)
 
-	$PlayerTrail.paint_point()
+    $PlayerTrail.paint_point()
 
 
 func move_back():
-	position = $PlayerTrail.pop_last()
+    position = $PlayerTrail.pop_last()
 
 func _physics_process(delta):
-	handle_input(delta)
+    if GlobalState.is_paused():
+        return 
+    
+    handle_input(delta)
 
 func _on_InteractionArea_area_entered(area):
-	print("Interactable Object available!")
-	interactable_object = area.get_parent()
+    print("Interactable Object available!")
+    interactable_object = area.get_parent()
 
 func _on_InteractionArea_area_exited(_area):
     print("Interactable Object gone!")
     interactable_object = null
 
-func pick_up(object : Pickup):
+func pick_up(object):
     pickup_object = object
     
     # Add sprite of the object to the pickup slot as visual indicator
     $PickupSprite.texture = object.get_node("Sprite").texture
     $PickupSprite.show()
     
+    if pickup_object.name == 'Powerup':
+        speed += pickup_object.speed_bonus
+    
 func drop():
+    if pickup_object.name == 'Powerup':
+        speed = BASE_SPEED
+    
     pickup_object.queue_free()
     pickup_object = null
     
