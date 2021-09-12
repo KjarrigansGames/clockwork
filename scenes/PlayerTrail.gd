@@ -47,11 +47,11 @@ func try_second_last_record():
     return null
 
 func distance_to_last(point: Vector2) -> float:
-	return point.distance_to(last_record())
+    return point.distance_to(last_record())
 
 func distance_to_second_last(point: Vector2):
-	var second_last = try_second_last_record()
-	if second_last != null:
-		return point.distance_to(second_last)
-	return null
+    var second_last = try_second_last_record()
+    if second_last != null:
+        return point.distance_to(second_last)
+    return null
 

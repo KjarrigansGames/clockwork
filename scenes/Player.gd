@@ -44,7 +44,7 @@ func handle_input(delta: float):
 
     rotation += rotation_direction * ROTATION_SPEED * delta
     velocity = move_and_slide(velocity)
-	trail.record_position()
+    trail.record_position()
 
     # "Animate" the picked up object by slightly rotating it every tick
     if pickup_object:
@@ -77,10 +77,10 @@ func _physics_process(delta):
     handle_input(delta)
 
 func _on_InteractionArea_area_entered(area):
-	interactable_object = area.get_parent()
+    interactable_object = area.get_parent()
 
 func _on_InteractionArea_area_exited(_area):
-	interactable_object = null
+    interactable_object = null
 
 func pick_up(object):
     pickup_object = object
