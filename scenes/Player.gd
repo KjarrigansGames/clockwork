@@ -46,7 +46,6 @@ func handle_input(delta: float):
 
     $PlayerTrail.paint_point()
 
-
 func move_back():
     position = $PlayerTrail.pop_last()
 
@@ -57,11 +56,9 @@ func _physics_process(delta):
     handle_input(delta)
 
 func _on_InteractionArea_area_entered(area):
-    print("Interactable Object available!")
     interactable_object = area.get_parent()
 
 func _on_InteractionArea_area_exited(_area):
-    print("Interactable Object gone!")
     interactable_object = null
 
 func pick_up(object):
