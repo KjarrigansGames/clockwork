@@ -1,7 +1,7 @@
 extends Node2D
 
 export var time_to_finish : int
-export var standalone : bool = true
+export var standalone : bool = false
 
 func _ready():
     if standalone:
@@ -13,4 +13,5 @@ func _ready():
         remove_child($CanvasModulate)  
     
 func next_level():
-    get_tree().change_scene("res://scenes/Level_1.tscn")
+    # TODO, actual next level
+    get_tree().change_scene("res://scenes/Menu.tscn")

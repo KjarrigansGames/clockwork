@@ -5,7 +5,7 @@ signal play
 signal finished
 
 enum STATE { PLAY, PAUSE }
-var current_state = STATE.PAUSE
+var current_state = STATE.PLAY
 
 func _ready():
     connect("finished", self, "finished_level")

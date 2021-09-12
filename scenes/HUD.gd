@@ -9,6 +9,6 @@ func _process(delta):
     remaining_time -= delta
     if remaining_time <= 0:
         $Notice/Message.show()
-        GlobalState.emit_signal("pause") 
+        GlobalState.emit_signal("pause")
         
     $PanelContainer/TimeLeft.text = "Time Left: %d" % remaining_time
