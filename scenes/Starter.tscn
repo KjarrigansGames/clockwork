@@ -29,6 +29,7 @@ extents = Vector2( 22.7479, 32 )
 [node name="Starter" type="AnimatedSprite"]
 frames = SubResource( 4 )
 animation = "Idle"
+frame = 2
 playing = true
 centered = false
 offset = Vector2( 14, 4 )

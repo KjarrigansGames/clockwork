@@ -17,56 +17,56 @@ export(NodePath) var trail_path
 var trail
 
 func _ready():
-	$PickupSprite.hide()
-	trail = get_node(trail_path)
-	speed = BASE_SPEED
+    $PickupSprite.hide()
+    trail = get_node(trail_path)
+    speed = BASE_SPEED
 
 func _input(event):
-	if GlobalState.is_paused():
-		return 
-	
-	if event.is_action_released("ui_interact") && interactable_object != null:
-		interactable_object.interact(self)
+    if GlobalState.is_paused():
+        return 
+    
+    if event.is_action_released("ui_interact") && interactable_object != null:
+        interactable_object.interact(self)
 
 func handle_input(delta: float):
-	rotation_direction = 0
-	velocity = Vector2.ZERO
+    rotation_direction = 0
+    velocity = Vector2.ZERO
 
-	if Input.is_action_pressed("ui_right"):
-		rotation_direction += 1
-	if Input.is_action_pressed("ui_left"):
-		rotation_direction -= 1
-	if Input.is_action_pressed("ui_down"):
-		move_back()
-		return
-	if Input.is_action_pressed("ui_up"):
-		velocity += transform.x * speed
+    if Input.is_action_pressed("ui_right"):
+        rotation_direction += 1
+    if Input.is_action_pressed("ui_left"):
+        rotation_direction -= 1
+    if Input.is_action_pressed("ui_down"):
+        move_back()
+        return
+    if Input.is_action_pressed("ui_up"):
+        velocity += transform.x * speed
 
-	rotation += rotation_direction * ROTATION_SPEED * delta
-	velocity = move_and_slide(velocity)
+    rotation += rotation_direction * ROTATION_SPEED * delta
+    velocity = move_and_slide(velocity)
 
-	# "Animate" the picked up object by slightly rotating it every tick
-	if pickup_object:
-		$PickupSprite.rotation += (2 * delta)
+    # "Animate" the picked up object by slightly rotating it every tick
+    if pickup_object:
+        $PickupSprite.rotation += (2 * delta)
 
 func move_back():
-	var last = trail.last_record()
-	var second_last = trail.try_second_last_record()
+    var last = trail.last_record()
+    var second_last = trail.try_second_last_record()
 
-	if second_last != null:
-		rotation = last.angle_to_point(second_last)
+    if second_last != null:
+        rotation = last.angle_to_point(second_last)
 
-	velocity -= transform.x * speed
-	velocity = move_and_slide(velocity)
+    velocity -= transform.x * speed
+    velocity = move_and_slide(velocity)
 
-	if trail.last_record().distance_to(global_position) < 10:
-		trail.remove_last_record()
+    if trail.last_record().distance_to(global_position) < 10:
+        trail.remove_last_record()
 
 func _physics_process(delta):
-	if GlobalState.is_paused():
-		return 
-	
-	handle_input(delta)
+    if GlobalState.is_paused():
+        return
+    
+    handle_input(delta)
 
 func _on_InteractionArea_area_entered(area):
     interactable_object = area.get_parent()
@@ -75,21 +75,28 @@ func _on_InteractionArea_area_exited(_area):
     interactable_object = null
 
 func pick_up(object):
-	pickup_object = object
-	
-	# Add sprite of the object to the pickup slot as visual indicator
-	$PickupSprite.texture = object.get_node("Sprite").texture
-	$PickupSprite.show()
-	
-	if pickup_object.name == 'Powerup':
-		speed += pickup_object.speed_bonus
-	
-func drop():
-	if pickup_object.name == 'Powerup':
-		speed = BASE_SPEED
-	
-	pickup_object.queue_free()
-	pickup_object = null
-	
-	$PickupSprite.texture = null
-	$PickupSprite.hide()
+    pickup_object = object
+    
+    # Add sprite of the object to the pickup slot as visual indicator
+    $PickupSprite.texture = object.get_node("Sprite").texture
+    $PickupSprite.show()
+    
+    $PickupSound.stream = object.item_sound
+    $PickupSound.play()
+    
+    if pickup_object.name == 'Powerup':
+        speed += pickup_object.speed_bonus
+    
+func drop(drop_sound=null):
+    if drop_sound:
+        $PickupSound.stream = drop_sound
+        $PickupSound.play()
+    
+    if pickup_object.name == 'Powerup':
+        speed = BASE_SPEED
+    
+    pickup_object.queue_free()
+    pickup_object = null
+    
+    $PickupSprite.texture = null
+    $PickupSprite.hide()

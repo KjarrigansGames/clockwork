@@ -4,6 +4,7 @@ class_name Powerup
 export var item_texture : Texture
 export var speed_bonus : int
 const item_type = 'Powerup'
+const item_sound = preload("res://sounds/Powerup.wav")
 
 func _ready():
     $Sprite.texture = item_texture

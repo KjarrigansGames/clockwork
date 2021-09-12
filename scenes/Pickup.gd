@@ -3,6 +3,7 @@ class_name Pickup
 
 export var item_texture : Texture
 export var item_type : String
+const item_sound = preload("res://sounds/Pickup.wav")
 
 func _ready():
     $Sprite.texture = item_texture
@@ -10,9 +11,9 @@ func _ready():
 func interact(player):
     if player.pickup_object:
         player.drop() 
-    
+        
     player.pick_up(self)
-    get_parent().remove_child(self)
+    get_parent().remove_child(self)    
 
 func _physics_process(delta):
     if GlobalState.is_paused():

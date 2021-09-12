@@ -94,5 +94,7 @@ margin_bottom = 445.0
 custom_fonts/font = ExtResource( 7 )
 text = "Game Over"
 
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_InteractionArea_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_InteractionArea_area_exited"]
