@@ -73,11 +73,10 @@ item_type = "Green_Gear"
 position = Vector2( 160, 1440 )
 rotation = -1.5708
 base_speed = 400
-trail_path = NodePath("../PlayerTrail")
 
 [node name="Starter" parent="." instance=ExtResource( 10 )]
 position = Vector2( 11, 1677 )
 rotation = -1.5708
-frame = 0
+frame = 1
 
 [node name="PlayerTrail" parent="." instance=ExtResource( 12 )]

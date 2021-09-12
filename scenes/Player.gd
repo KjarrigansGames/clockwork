@@ -12,13 +12,10 @@ var interactable_object
 var pickup_rotation = 0
 var pickup_object
 
-export(NodePath) var trail_path
-
-var trail
+var trail : PlayerTrail
 
 func _ready():
     $PickupSprite.hide()
-    trail = get_node(trail_path)
     speed = base_speed
 
 func _input(event):
@@ -41,9 +38,14 @@ func handle_input(delta: float):
         return
     if Input.is_action_pressed("ui_up"):
         velocity += transform.x * speed
-
+    
     rotation += rotation_direction * ROTATION_SPEED * delta
+        
+    # For DEBUG
+    $Camera2D/HUD/PanelContainer/HBoxContainer/TrailPoints.text = "Trail Points: %d" % trail.get_point_count()
+    
     velocity = move_and_slide(velocity)
+    
     trail.record_position()
 
     # "Animate" the picked up object by slightly rotating it every tick
@@ -51,6 +53,9 @@ func handle_input(delta: float):
         $PickupSprite.rotation += (2 * delta)
 
 func move_back():
+    if not trail.has_pullback_points():
+        return
+        
     var last = trail.last_record()
     var second_last = trail.try_second_last_record()
 

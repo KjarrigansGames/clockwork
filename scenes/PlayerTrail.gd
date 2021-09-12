@@ -1,17 +1,12 @@
 extends Line2D
-
-export(NodePath) var player_path
+class_name PlayerTrail
 
 var player
 
-func _ready():
-    clear_points()
-    
-    player = get_node(player_path)
-    # First point should always be the players starting point
-    add_point(player.global_position)
-
-    # Last point should always be players current position
+func connect_to(player):
+    print("Attached!")
+    player.trail = self
+    self.player = player
     add_point(player.global_position)
 
 func _physics_process(_delta):
@@ -27,7 +22,7 @@ func record_position():
 
     var distance = last.distance_to(player_pos)
     # Force some distance between points
-    if distance < 5:
+    if distance < 10:
         return
 
     add_point(player_pos)
@@ -48,6 +43,9 @@ func try_second_last_record():
         return get_point_position(count - 3)
     return null
 
+func has_pullback_points() -> bool:
+    return get_point_count() > 3
+    
 func distance_to_last(point: Vector2) -> float:
     return point.distance_to(last_record())
 

@@ -11,4 +11,4 @@ func _process(delta):
         $Notice/Message.show()
         GlobalState.emit_signal("pause")
         
-    $PanelContainer/TimeLeft.text = "Time Left: %d" % remaining_time
+    $PanelContainer/HBoxContainer/TimeLeft.text = "Time Left: %d" % remaining_time

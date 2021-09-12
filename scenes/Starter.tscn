@@ -46,3 +46,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 5 )
+
+[node name="TrailAnchor" type="Node2D" parent="."]
+position = Vector2( 231.875, 149 )

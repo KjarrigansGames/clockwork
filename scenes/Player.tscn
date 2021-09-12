@@ -11,9 +11,8 @@
 radius = 16.0
 height = 31.5
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 24.519
-height = 21.6912
+[sub_resource type="CircleShape2D" id=2]
+radius = 31.5
 
 [node name="Player" type="KinematicBody2D"]
 rotation = 1.5708
@@ -51,7 +50,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -67,16 +66,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeLeft" type="Label" parent="Camera2D/HUD/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/HUD/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1273.0
 margin_bottom = 45.0
+
+[node name="TimeLeft" type="Label" parent="Camera2D/HUD/PanelContainer/HBoxContainer"]
+margin_right = 1055.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
 text = "Time Left: 100"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TrailPoints" type="Label" parent="Camera2D/HUD/PanelContainer/HBoxContainer"]
+margin_left = 1059.0
+margin_right = 1266.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 5 )
+text = "Trail Points: 0"
 
 [node name="Notice" type="CenterContainer" parent="Camera2D/HUD"]
 margin_right = 1280.0
