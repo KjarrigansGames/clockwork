@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/Powerup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Powerup.png" type="Texture" id=11]
 [ext_resource path="res://scenes/Level-End.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/PlayerTrail.gd" type="Script" id=13]
+[ext_resource path="res://PlayerTrail.tscn" type="PackedScene" id=13]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -677,7 +677,4 @@ position = Vector2( 672, 416 )
 item_texture = ExtResource( 11 )
 speed_bonus = 150
 
-[node name="PlayerTrail" type="Line2D" parent="."]
-points = PoolVector2Array( 24.6335, 224.003 )
-script = ExtResource( 13 )
-player_path = NodePath("../Player")
+[node name="PlayerTrail" parent="." instance=ExtResource( 13 )]

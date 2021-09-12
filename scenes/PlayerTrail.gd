@@ -5,6 +5,8 @@ export(NodePath) var player_path
 var player
 
 func _ready():
+    clear_points()
+    
     player = get_node(player_path)
     # First point should always be the players starting point
     add_point(player.global_position)
