@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var remaining_time
+var remaining_time = 999
 
 func _process(delta):
     if GlobalState.is_paused():

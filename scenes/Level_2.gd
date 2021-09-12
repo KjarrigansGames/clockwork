@@ -11,6 +11,7 @@ func _ready():
         remove_child($Player)
         remove_child($Starter)     
         remove_child($CanvasModulate)  
+        remove_child($PlayerTrail)
     
 func next_level():
     # TODO, actual next level
