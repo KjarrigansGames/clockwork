@@ -614,7 +614,7 @@ centered = false
 [node name="Starter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -224, 96 )
 scale = Vector2( 1.0881, 0.859 )
-frame = 1
+frame = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
@@ -636,7 +636,7 @@ trail_path = NodePath("../PlayerTrail")
 
 [node name="Obstacle-1" type="Node2D" parent="."]
 
-[node name="Green Gear" parent="Obstacle-1" instance=ExtResource( 6 )]
+[node name="Pickup" parent="Obstacle-1" instance=ExtResource( 6 )]
 position = Vector2( 1248, 224 )
 item_texture = ExtResource( 5 )
 item_type = "Green_Gear"
@@ -648,7 +648,7 @@ needs_item_texture = ExtResource( 5 )
 
 [node name="Obstacle-2" type="Node2D" parent="."]
 
-[node name="Pink Gear" parent="Obstacle-2" instance=ExtResource( 6 )]
+[node name="Pickup" parent="Obstacle-2" instance=ExtResource( 6 )]
 position = Vector2( 736, 1312 )
 item_texture = ExtResource( 7 )
 item_type = "Pink_Gear"
@@ -660,7 +660,7 @@ needs_item_texture = ExtResource( 7 )
 
 [node name="Obstacle-3" type="Node2D" parent="."]
 
-[node name="Green Gear" parent="Obstacle-3" instance=ExtResource( 6 )]
+[node name="Pickup" parent="Obstacle-3" instance=ExtResource( 6 )]
 position = Vector2( 544, 928 )
 item_texture = ExtResource( 5 )
 item_type = "Green_Gear"

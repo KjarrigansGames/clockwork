@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
-const BASE_SPEED = 300
+export var base_speed = 300
 const ROTATION_SPEED = 10;
 var speed
 
@@ -19,7 +19,7 @@ var trail
 func _ready():
     $PickupSprite.hide()
     trail = get_node(trail_path)
-    speed = BASE_SPEED
+    speed = base_speed
 
 func _input(event):
     if GlobalState.is_paused():
@@ -101,7 +101,7 @@ func drop(drop_sound=null):
         $PickupSound.play()
     
     if pickup_object.name == 'Powerup':
-        speed = BASE_SPEED
+        speed = base_speed
     
     pickup_object.queue_free()
     pickup_object = null

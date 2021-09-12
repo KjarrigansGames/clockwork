@@ -10,7 +10,10 @@ func _ready():
 
 func interact(player):
     if player.pickup_object:
-        player.drop() 
+        if player.pickup_object.item_type == 'Powerup':
+            player.drop()
+        else:
+            return
         
     player.pick_up(self)
     get_parent().remove_child(self)    
