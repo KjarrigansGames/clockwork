@@ -44,6 +44,7 @@ func handle_input(delta: float):
 
 	rotation += rotation_direction * ROTATION_SPEED * delta
 	velocity = move_and_slide(velocity)
+	trail.record_position()
 
 	# "Animate" the picked up object by slightly rotating it every tick
 	if pickup_object:
@@ -56,11 +57,18 @@ func move_back():
 	if second_last != null:
 		rotation = last.angle_to_point(second_last)
 
-	velocity -= transform.x * speed
+	velocity -= transform.x * (speed + 200) 
 	velocity = move_and_slide(velocity)
 
-	if trail.last_record().distance_to(global_position) < 10:
+	var distance_to_last = trail.distance_to_last(global_position)
+
+	if distance_to_last < 5 || distance_to_last > 10:
 		trail.remove_last_record()
+
+	while (trail.distance_to_second_last(global_position) != null &&
+			trail.distance_to_second_last(global_position) < trail.distance_to_last(global_position)):
+		trail.remove_last_record()
+
 
 func _physics_process(delta):
 	if GlobalState.is_paused():
@@ -69,10 +77,10 @@ func _physics_process(delta):
 	handle_input(delta)
 
 func _on_InteractionArea_area_entered(area):
-    interactable_object = area.get_parent()
+	interactable_object = area.get_parent()
 
 func _on_InteractionArea_area_exited(_area):
-    interactable_object = null
+	interactable_object = null
 
 func pick_up(object):
 	pickup_object = object
