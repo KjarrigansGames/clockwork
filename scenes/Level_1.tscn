@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://assets/tilesheet_complete.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/Powerup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Powerup.png" type="Texture" id=11]
 [ext_resource path="res://scenes/Level-End.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/PlayerTrail.gd" type="Script" id=13]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -613,6 +614,7 @@ centered = false
 [node name="Starter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -224, 96 )
 scale = Vector2( 1.0881, 0.859 )
+frame = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
@@ -628,8 +630,9 @@ visible = false
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 224 )
+position = Vector2( 32.4204, 224 )
 rotation = 0.0
+trail_path = NodePath("../PlayerTrail")
 
 [node name="Obstacle-1" type="Node2D" parent="."]
 
@@ -673,3 +676,8 @@ needs_item_texture = ExtResource( 5 )
 position = Vector2( 672, 416 )
 item_texture = ExtResource( 11 )
 speed_bonus = 150
+
+[node name="PlayerTrail" type="Line2D" parent="."]
+points = PoolVector2Array( 24.6335, 224.003 )
+script = ExtResource( 13 )
+player_path = NodePath("../Player")

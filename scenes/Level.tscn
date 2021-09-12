@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Gear_Green.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Pickup.tscn" type="PackedScene" id=6]
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.352941 )

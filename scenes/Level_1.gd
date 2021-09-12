@@ -14,3 +14,4 @@ func _ready():
     
 func next_level():
     get_tree().change_scene("res://scenes/Level_1.tscn")
+

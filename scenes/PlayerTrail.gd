@@ -1,66 +1,48 @@
 extends Line2D
 
-var target
+export(NodePath) var player_path
 
-export(NodePath) var targetPath
+var player
 
-var segments = []
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-    target = get_node(targetPath)
-    # For sanity
-    clear_points()
-    add_point(target.global_position)
+	player = get_node(player_path)
+	# First point should always be the players starting point
+	add_point(player.global_position)
 
-    pass # Replace with function body.
+	# Last point should always be players current position
+	add_point(player.global_position)
 
-func paint_point():
-    global_position = Vector2(0,0)
-    global_rotation = 0
+func _physics_process(_delta):
+	update_to_player_pos()
 
-    var last = get_from_back(0)
+func update_to_player_pos():
+	var last_point = get_point_count() - 1
+	set_point_position(last_point, player.global_position)
 
-    var distance = last.distance_to(target.global_position)
+func record_position():
+	var player_pos: Vector2 = player.global_position
+	var last: Vector2 = last_record()
 
-    if distance > 30:
-        if get_point_count() > 1:
-            add_collision(last, get_from_back(1) )
+	var distance = last.distance_to(player_pos)
+	# Force some distance between points
+	if distance < 5:
+		return
 
-        add_point(target.global_position)
-    pass
+	add_point(player_pos)
 
-func add_collision(a, b):
-    var node = CollisionShape2D.new()
-    var segment = SegmentShape2D.new()
+func remove_last_record():
+	var count = get_point_count()
+	if count > 2:
+		remove_point(get_point_count() -2)
 
-    segment.a = a
-    segment.b = b
+# Returns the last point that is not the player position
+func last_record() -> Vector2: 
+	return get_point_position(get_point_count() - 2)
 
-    node.shape = segment
+func try_second_last_record():
+	var count = get_point_count()
 
-    $CollissionOwner.add_child(node)
-    segments.push_front(node)
+	if count > 2:
+		return get_point_position(count - 3)
+	return null
 
-func pop_last():
-    if get_point_count() == 1:
-        return target.global_position
-
-    global_position = Vector2(0,0)
-    global_rotation = 0
-
-    var last: Vector2 = get_from_back(0)
-    remove_point(get_point_count() -1)
-
-    for seg in segments:
-        if last.distance_to(seg.shape.a) == 0:
-            seg.queue_free()
-            segments.erase(seg)
-            return last
-
-    return last
-
-func get_from_back(index):
-    if get_point_count() > 0:
-        return get_point_position(get_point_count() -1 - index)
-    return null
