@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=2]
-[ext_resource path="res://fonts/Buttons.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/Button.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/Gear_Green.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -12,74 +29,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Title" type="CenterContainer" parent="."]
 margin_right = 1280.0
-margin_bottom = 768.0
+margin_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 296.0
-margin_top = 250.0
-margin_right = 984.0
-margin_bottom = 517.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 688.0
-margin_bottom = 123.0
+[node name="Text" type="Label" parent="Title"]
+margin_left = 280.0
+margin_top = 88.0
+margin_right = 999.0
+margin_bottom = 211.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.482353, 0.235294, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0.454902, 0.145098, 0, 1 )
-text = "CLOCKWORK"
+text = "CL   CKWORK"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="New Game Group" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 127.0
-margin_right = 688.0
-margin_bottom = 171.0
+[node name="Gear" type="Sprite" parent="Title"]
+position = Vector2( 480.056, 150 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
 
-[node name="New Game" type="Button" parent="CenterContainer/VBoxContainer/New Game Group"]
-margin_left = 264.0
-margin_right = 424.0
-margin_bottom = 44.0
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+margin_top = 400.0
+margin_right = 1280.0
+margin_bottom = 768.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
+margin_left = 517.0
+margin_top = 120.0
+margin_right = 763.0
+margin_bottom = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New Game" type="Button" parent="CenterContainer2/VBoxContainer"]
+margin_right = 246.0
+margin_bottom = 62.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_hover = Color( 0.482353, 0.235294, 0, 1 )
 text = "New Game"
 
-[node name="Help Group" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 175.0
-margin_right = 688.0
-margin_bottom = 219.0
-
-[node name="Help" type="Button" parent="CenterContainer/VBoxContainer/Help Group"]
-margin_left = 305.0
-margin_right = 383.0
-margin_bottom = 44.0
+[node name="Exit" type="Button" parent="CenterContainer2/VBoxContainer"]
+margin_top = 66.0
+margin_right = 246.0
+margin_bottom = 128.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 3 )
-text = "Help"
-
-[node name="Exit Group" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 223.0
-margin_right = 688.0
-margin_bottom = 267.0
-
-[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/Exit Group"]
-margin_left = 309.0
-margin_right = 378.0
-margin_bottom = 44.0
-custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_hover = Color( 0.482353, 0.235294, 0, 1 )
 text = "Exit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/New Game Group/New Game" to="." method="_on_New_Game_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit Group/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/New Game" to="." method="_on_New_Game_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

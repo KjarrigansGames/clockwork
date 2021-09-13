@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Player.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/light.png" type="Texture" id=4]
-[ext_resource path="res://fonts/Buttons.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scenes/HUD.gd" type="Script" id=6]
-[ext_resource path="res://fonts/Title.tres" type="DynamicFont" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -55,55 +53,7 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="HUD" type="CanvasLayer" parent="Camera2D"]
-script = ExtResource( 6 )
-
-[node name="PanelContainer" type="PanelContainer" parent="Camera2D/HUD"]
-margin_right = 1280.0
-margin_bottom = 52.0
-grow_horizontal = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/HUD/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1273.0
-margin_bottom = 45.0
-
-[node name="TimeLeft" type="Label" parent="Camera2D/HUD/PanelContainer/HBoxContainer"]
-margin_right = 1055.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
-text = "Time Left: 100"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TrailPoints" type="Label" parent="Camera2D/HUD/PanelContainer/HBoxContainer"]
-margin_left = 1059.0
-margin_right = 1266.0
-margin_bottom = 38.0
-custom_fonts/font = ExtResource( 5 )
-text = "Trail Points: 0"
-
-[node name="Notice" type="CenterContainer" parent="Camera2D/HUD"]
-margin_right = 1280.0
-margin_bottom = 768.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Message" type="Label" parent="Camera2D/HUD/Notice"]
-visible = false
-margin_left = 383.0
-margin_top = 322.0
-margin_right = 896.0
-margin_bottom = 445.0
-custom_fonts/font = ExtResource( 7 )
-text = "Game Over"
+[node name="HUD" parent="Camera2D" instance=ExtResource( 3 )]
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="."]
 

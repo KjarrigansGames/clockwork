@@ -603,7 +603,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
-time_to_finish = 60
+time_to_finish = 40
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.352941 )
@@ -614,7 +614,7 @@ centered = false
 [node name="Starter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -224, 96 )
 scale = Vector2( 1.0881, 0.859 )
-frame = 1
+frame = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
