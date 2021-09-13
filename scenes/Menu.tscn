@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://fonts/Title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=2]
 [ext_resource path="res://fonts/Button.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/Gear_Green.png" type="Texture" id=4]
+[ext_resource path="res://sounds/menu.mp3" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -99,6 +100,10 @@ custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_hover = Color( 0.482353, 0.235294, 0, 1 )
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer2/VBoxContainer/New Game" to="." method="_on_New_Game_pressed"]
 [connection signal="pressed" from="CenterContainer2/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

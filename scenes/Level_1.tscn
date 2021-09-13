@@ -614,7 +614,6 @@ centered = false
 [node name="Starter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -224, 96 )
 scale = Vector2( 1.0881, 0.859 )
-frame = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
