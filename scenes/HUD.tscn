@@ -49,27 +49,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColL" type="Label" parent="PanelContainer/HBoxContainer"]
-visible = false
-margin_left = 353.0
-margin_right = 702.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 2 )
-text = "Col-L: Yes"
-
-[node name="ColR" type="Label" parent="PanelContainer/HBoxContainer"]
-visible = false
-margin_left = 529.0
-margin_right = 1055.0
-margin_bottom = 38.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 2 )
-text = "Col-R: Yes"
-valign = 1
-
 [node name="TrailPoints" type="Label" parent="PanelContainer/HBoxContainer"]
 visible = false
 margin_left = 1059.0

@@ -604,6 +604,7 @@ __meta__ = {
 "_edit_group_": true
 }
 time_to_finish = 40
+standalone = true
 
 [node name="Background" type="Sprite" parent="."]
 visible = false
@@ -623,6 +624,7 @@ __meta__ = {
 [node name="Starter" parent="." instance=ExtResource( 8 )]
 position = Vector2( -224, 96 )
 scale = Vector2( 1.0881, 0.859 )
+frame = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 95 )
@@ -637,7 +639,7 @@ rotation = 1.5708
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32.4204, 224 )
+position = Vector2( 32, 224 )
 
 [node name="Obstacle-1" type="Node2D" parent="."]
 position = Vector2( -192, 0 )

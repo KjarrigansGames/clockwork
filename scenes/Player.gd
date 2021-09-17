@@ -80,8 +80,6 @@ func move_back():
 func _physics_process(delta):
     if GlobalState.is_paused():
         return
-    $Camera2D/HUD/PanelContainer/HBoxContainer/ColL.text = 'Down: Yes' if $BottomRay.is_colliding() else 'Down: No'
-    $Camera2D/HUD/PanelContainer/HBoxContainer/ColR.text = 'Up: Yes' if $UpRay.is_colliding() else 'Up: No'
     
     handle_input(delta)
 

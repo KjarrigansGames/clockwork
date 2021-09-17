@@ -1,7 +1,8 @@
 extends Node2D
 
 export var time_to_finish : int
-export var standalone : bool = true
+export var standalone : bool = false
+var finished = false
 
 func _ready():
     if standalone:
