@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 export var base_speed = 300
-const ROTATION_SPEED = 10;
+const ROTATION_SPEED = 5;
 var speed
 
 var velocity = Vector2.ZERO
@@ -24,20 +24,22 @@ func _input(event):
     
     if event.is_action_released("ui_interact") && interactable_object != null:
         interactable_object.interact(self)
-
+        
 func handle_input(delta: float):
     rotation_direction = 0
     velocity = Vector2.ZERO
 
     if Input.is_action_pressed("ui_right"):
-        rotation_direction += 1
+        if not $UpRay.is_colliding():
+            rotation_direction += 1
     if Input.is_action_pressed("ui_left"):
-        rotation_direction -= 1
+        if not $BottomRay.is_colliding():
+            rotation_direction -= 1
     if Input.is_action_pressed("ui_down"):
         move_back()
         return
     if Input.is_action_pressed("ui_up"):
-        velocity += transform.x * speed
+        velocity += transform.x * speed    
     
     rotation += rotation_direction * ROTATION_SPEED * delta
         
@@ -78,6 +80,8 @@ func move_back():
 func _physics_process(delta):
     if GlobalState.is_paused():
         return
+    $Camera2D/HUD/PanelContainer/HBoxContainer/ColL.text = 'Down: Yes' if $BottomRay.is_colliding() else 'Down: No'
+    $Camera2D/HUD/PanelContainer/HBoxContainer/ColR.text = 'Up: Yes' if $UpRay.is_colliding() else 'Up: No'
     
     handle_input(delta)
 

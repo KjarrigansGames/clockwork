@@ -29,7 +29,8 @@ needs_item_texture = ExtResource( 5 )
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 800, 640 )
+position = Vector2( 1120, 448 )
+rotation = 0.0
 
 [node name="Green Gear" parent="." instance=ExtResource( 6 )]
 position = Vector2( 960, 672 )

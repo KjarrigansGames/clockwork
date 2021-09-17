@@ -19,4 +19,4 @@ func _ready():
         remove_child($PlayerTrail)
     
 func next_level():
-    get_tree().change_scene("res://scenes/Level_3.tscn")
+    $Player/Camera2D/HUD.game_won()

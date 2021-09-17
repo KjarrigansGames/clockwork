@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/Level_4.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Level_3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/background.jpg" type="Texture" id=3]
+[ext_resource path="res://scenes/Starter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/PlayerTrail.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Level.tres" type="TileSet" id=7]
+[ext_resource path="res://assets/Gear_Green.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Stopper.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Pickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Powerup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/Powerup.png" type="Texture" id=12]
+
+[node name="Level-4" type="Node2D"]
+script = ExtResource( 1 )
+time_to_finish = 300
+standalone = true
+
+[node name="Level-3" parent="." instance=ExtResource( 2 )]
+standalone = false
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 1280, 1472 )
+scale = Vector2( 0.64, 0.736 )
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 7 )
+format = 1
+tile_data = PoolIntArray( 1507348, 0, 7, 1507349, 0, 196612, 1507350, 0, 196612, 1507351, 0, 196612, 1507352, 0, 196612, 1507353, 0, 196612, 1507354, 0, 196612, 1507355, 0, 196612, 1507356, 0, 196612, 1507357, 0, 196612, 1507358, 0, 196612, 1507359, 0, 196612, 1507360, 0, 196612, 1507361, 0, 196612, 1507362, 0, 196612, 1507363, 0, 196612, 1507364, 0, 196612, 1507365, 0, 196612, 1507366, 0, 196612, 1507367, 0, 8, 1572884, 0, 327682, 1572885, 0, 196613, 1572886, 0, 196613, 1572887, 0, 196613, 1572888, 0, 196613, 1572889, 0, 196613, 1572890, 0, 196613, 1572891, 0, 196613, 1572892, 0, 196613, 1572893, 0, 196613, 1572894, 0, 196613, 1572895, 0, 196613, 1572896, 0, 196613, 1572897, 0, 196613, 1572898, 0, 196613, 1572899, 0, 196613, 1572900, 0, 196613, 1572901, 0, 196613, 1572902, 0, 196613, 1572903, 0, 65544, 1638420, 0, 65538, 1703956, 0, 65539, 1703957, 0, 2, 1703958, 0, 2, 1703959, 0, 2, 1703960, 0, 2, 1703961, 0, 2, 1703962, 0, 2, 1703963, 0, 2, 1703964, 0, 2, 1703965, 0, 2, 1703966, 0, 2, 1703967, 0, 2, 1703968, 0, 2, 1703969, 0, 2, 1703970, 0, 2, 1703971, 0, 2, 1703972, 0, 2, 1703973, 0, 5, 1703975, 0, 65541, 1769492, 0, 65538, 1769511, 0, 65538, 1835028, 0, 65538, 1835030, 0, 65542, 1835031, 0, 2, 1835032, 0, 2, 1835033, 0, 2, 1835034, 0, 2, 1835035, 0, 2, 1835036, 0, 2, 1835037, 0, 2, 1835038, 0, 2, 1835039, 0, 2, 1835040, 0, 2, 1835041, 0, 2, 1835042, 0, 2, 1835043, 0, 2, 1835044, 0, 2, 1835045, 0, 5, 1835047, 0, 65538, 1900564, 0, 65538, 1900583, 0, 65538, 1966100, 0, 65539, 1966101, 0, 2, 1966102, 0, 2, 1966103, 0, 2, 1966104, 0, 2, 1966105, 0, 2, 1966106, 0, 2, 1966107, 0, 2, 1966108, 0, 2, 1966109, 0, 2, 1966110, 0, 2, 1966111, 0, 2, 1966112, 0, 2, 1966113, 0, 2, 1966114, 0, 2, 1966115, 0, 2, 1966116, 0, 2, 1966117, 0, 5, 1966119, 0, 65538, 2031636, 0, 65538, 2031655, 0, 65538, 2097172, 0, 65539, 2097173, 0, 2, 2097174, 0, 2, 2097175, 0, 2, 2097176, 0, 2, 2097177, 0, 2, 2097178, 0, 2, 2097179, 0, 2, 2097180, 0, 2, 2097181, 0, 2, 2097182, 0, 2, 2097183, 0, 2, 2097184, 0, 2, 2097185, 0, 2, 2097186, 0, 2, 2097187, 0, 2, 2097188, 0, 2, 2097189, 0, 5, 2097191, 0, 65538, 2162708, 0, 65538, 2162727, 0, 65538, 2228244, 0, 65538, 2228246, 0, 65542, 2228247, 0, 2, 2228248, 0, 2, 2228249, 0, 2, 2228250, 0, 2, 2228251, 0, 2, 2228252, 0, 2, 2228253, 0, 2, 2228254, 0, 2, 2228255, 0, 2, 2228256, 0, 2, 2228257, 0, 2, 2228258, 0, 2, 2228259, 0, 2, 2228260, 0, 2, 2228261, 0, 5, 2228263, 0, 65538, 2293780, 0, 65538, 2293799, 0, 65538, 2359316, 0, 65539, 2359317, 0, 2, 2359318, 0, 2, 2359319, 0, 2, 2359320, 0, 2, 2359321, 0, 2, 2359322, 0, 2, 2359323, 0, 2, 2359324, 0, 2, 2359325, 0, 2, 2359326, 0, 2, 2359327, 0, 2, 2359328, 0, 2, 2359329, 0, 2, 2359330, 0, 2, 2359331, 0, 2, 2359332, 0, 2, 2359333, 0, 5, 2359335, 0, 65538, 2424852, 0, 65538, 2424871, 0, 65538, 2490388, 0, 65539, 2490389, 0, 2, 2490390, 0, 2, 2490391, 0, 2, 2490392, 0, 2, 2490393, 0, 2, 2490394, 0, 2, 2490395, 0, 2, 2490396, 0, 2, 2490397, 0, 2, 2490398, 0, 2, 2490399, 0, 2, 2490400, 0, 2, 2490401, 0, 2, 2490402, 0, 2, 2490403, 0, 2, 2490404, 0, 2, 2490405, 0, 5, 2490407, 0, 65538, 2555924, 0, 65538, 2555943, 0, 65538, 2621460, 0, 65538, 2621462, 0, 65542, 2621463, 0, 2, 2621464, 0, 2, 2621465, 0, 2, 2621466, 0, 2, 2621467, 0, 2, 2621468, 0, 2, 2621469, 0, 2, 2621470, 0, 2, 2621471, 0, 2, 2621472, 0, 2, 2621473, 0, 2, 2621474, 0, 2, 2621475, 0, 2, 2621476, 0, 2, 2621477, 0, 5, 2621479, 0, 65538, 2686996, 0, 65538, 2687015, 0, 65538, 2752532, 0, 65536, 2752533, 0, 2, 2752534, 0, 2, 2752535, 0, 2, 2752536, 0, 2, 2752537, 0, 2, 2752538, 0, 2, 2752539, 0, 2, 2752540, 0, 2, 2752541, 0, 2, 2752542, 0, 2, 2752543, 0, 2, 2752544, 0, 2, 2752545, 0, 2, 2752546, 0, 2, 2752547, 0, 2, 2752548, 0, 2, 2752549, 0, 5, 2752551, 0, 65538, 2818087, 0, 65538, 2883604, 0, 7, 2883605, 0, 196612, 2883606, 0, 196612, 2883607, 0, 196612, 2883608, 0, 196612, 2883609, 0, 196612, 2883610, 0, 196612, 2883611, 0, 196612, 2883612, 0, 196612, 2883613, 0, 196612, 2883614, 0, 196612, 2883615, 0, 196612, 2883616, 0, 196612, 2883617, 0, 196612, 2883618, 0, 196612, 2883619, 0, 196612, 2883620, 0, 196612, 2883621, 0, 196612, 2883622, 0, 196612, 2883623, 0, 262147, 2949140, 0, 65543, 2949141, 0, 196613, 2949142, 0, 196613, 2949143, 0, 196613, 2949144, 0, 196613, 2949145, 0, 196613, 2949146, 0, 196613, 2949147, 0, 196613, 2949148, 0, 196613, 2949149, 0, 196613, 2949150, 0, 196613, 2949151, 0, 196613, 2949152, 0, 196613, 2949153, 0, 196613, 2949154, 0, 196613, 2949155, 0, 196613, 2949156, 0, 196613, 2949157, 0, 196613, 2949158, 0, 196613, 2949159, 0, 65544 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
+[node name="PlayerTrail" parent="." instance=ExtResource( 5 )]
+points = PoolVector2Array( 2560, 1632 )
+
+[node name="Starter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2764.87, 1780.41 )
+rotation = 3.14159
+frame = 1
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2528, 1632 )
+rotation = -3.14159
+base_speed = 600
+
+[node name="Obstacle-1" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-1" instance=ExtResource( 10 )]
+position = Vector2( 1376, 1632 )
+item_texture = ExtResource( 8 )
+item_type = "Green_Gear"
+
+[node name="Stopper" parent="Obstacle-1" instance=ExtResource( 9 )]
+position = Vector2( 2464, 1824 )
+needs_item_type = "Green_Gear"
+needs_item_texture = ExtResource( 8 )
+
+[node name="Obstacle-2" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-2" instance=ExtResource( 10 )]
+position = Vector2( 1376, 2016 )
+item_texture = ExtResource( 8 )
+item_type = "Green_Gear"
+
+[node name="Stopper" parent="Obstacle-2" instance=ExtResource( 9 )]
+position = Vector2( 2464, 2208 )
+needs_item_type = "Green_Gear"
+needs_item_texture = ExtResource( 8 )
+
+[node name="Obstacle-3" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-3" instance=ExtResource( 10 )]
+position = Vector2( 1376, 2400 )
+item_texture = ExtResource( 8 )
+item_type = "Green_Gear"
+
+[node name="Stopper" parent="Obstacle-3" instance=ExtResource( 9 )]
+position = Vector2( 2464, 2592 )
+needs_item_type = "Green_Gear"
+needs_item_texture = ExtResource( 8 )
+
+[node name="Powerup" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1376, 2592 )
+item_texture = ExtResource( 12 )
+speed_bonus = 250

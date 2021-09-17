@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/Level_2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/background.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/PlayerTrail.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Level.tres" type="TileSet" id=5]
+[ext_resource path="res://scenes/Starter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Level_3.gd" type="Script" id=7]
+[ext_resource path="res://assets/Gear_Green.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Stopper.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Pickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/Gear_Pink.png" type="Texture" id=11]
+[ext_resource path="res://scenes/Powerup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/Powerup.png" type="Texture" id=13]
+
+[node name="Level-3" type="Node2D"]
+script = ExtResource( 7 )
+time_to_finish = 300
+standalone = true
+
+[node name="Level-2" parent="." instance=ExtResource( 1 )]
+standalone = false
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( -1.52588e-05, 1472 )
+scale = Vector2( 0.64, 0.736 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( 1507328, 0, 7, 1507329, 0, 8, 1507331, 0, 65542, 1507332, 0, 2, 1507333, 0, 2, 1507334, 0, 262148, 1507335, 0, 262149, 1507336, 0, 2, 1507337, 0, 2, 1507338, 0, 2, 1507339, 0, 2, 1507340, 0, 262148, 1507341, 0, 262149, 1507342, 0, 2, 1507343, 0, 2, 1507344, 0, 2, 1507345, 0, 2, 1507346, 0, 262148, 1507347, 0, 8, 1572864, 0, 131076, 1572865, 0, 131077, 1572870, 0, 131076, 1572871, 0, 131077, 1572876, 0, 131076, 1572877, 0, 131077, 1572882, 0, 131076, 1572883, 0, 131077, 1638400, 0, 131076, 1638401, 0, 196610, 1638402, 0, 2, 1638403, 0, 262148, 1638404, 0, 8, 1638406, 0, 65543, 1638407, 0, 65544, 1638409, 0, 7, 1638410, 0, 8, 1638412, 0, 65543, 1638413, 0, 65544, 1638415, 0, 7, 1638416, 0, 8, 1638418, 0, 131076, 1638419, 0, 131077, 1703936, 0, 131076, 1703937, 0, 131077, 1703939, 0, 131076, 1703940, 0, 131077, 1703945, 0, 131076, 1703946, 0, 131077, 1703951, 0, 131076, 1703952, 0, 131077, 1703954, 0, 131076, 1703955, 0, 131077, 1769472, 0, 131076, 1769473, 0, 131077, 1769475, 0, 65543, 1769476, 0, 327685, 1769477, 0, 2, 1769478, 0, 2, 1769479, 0, 2, 1769480, 0, 2, 1769481, 0, 327684, 1769482, 0, 327685, 1769483, 0, 2, 1769484, 0, 2, 1769485, 0, 2, 1769486, 0, 2, 1769487, 0, 327684, 1769488, 0, 65544, 1769490, 0, 131076, 1769491, 0, 131077, 1835008, 0, 131076, 1835009, 0, 131077, 1835026, 0, 131076, 1835027, 0, 131077, 1900544, 0, 131076, 1900545, 0, 196610, 1900546, 0, 2, 1900547, 0, 2, 1900548, 0, 2, 1900549, 0, 2, 1900550, 0, 2, 1900551, 0, 2, 1900552, 0, 2, 1900553, 0, 2, 1900554, 0, 2, 1900555, 0, 5, 1900557, 0, 65542, 1900558, 0, 2, 1900559, 0, 2, 1900560, 0, 2, 1900561, 0, 2, 1900562, 0, 327684, 1900563, 0, 327683, 1966080, 0, 131076, 1966081, 0, 131077, 1966099, 0, 65538, 2031616, 0, 131076, 2031617, 0, 131077, 2031619, 0, 65541, 2031621, 0, 65541, 2031623, 0, 65541, 2031625, 0, 65541, 2031627, 0, 65541, 2031629, 0, 65541, 2031631, 0, 65541, 2031633, 0, 65541, 2031635, 0, 65538, 2097152, 0, 131076, 2097153, 0, 131077, 2097155, 0, 65538, 2097157, 0, 65538, 2097159, 0, 65538, 2097161, 0, 65538, 2097163, 0, 65538, 2097165, 0, 65538, 2097167, 0, 65538, 2097169, 0, 65538, 2097171, 0, 65538, 2162688, 0, 131076, 2162689, 0, 131077, 2162691, 0, 65538, 2162693, 0, 65538, 2162695, 0, 65538, 2162697, 0, 65538, 2162699, 0, 65538, 2162701, 0, 65538, 2162703, 0, 65538, 2162705, 0, 65538, 2162707, 0, 65538, 2228224, 0, 131076, 2228225, 0, 131077, 2228227, 0, 65538, 2228229, 0, 65538, 2228231, 0, 65538, 2228233, 0, 65538, 2228235, 0, 65538, 2228237, 0, 65538, 2228239, 0, 65538, 2228241, 0, 65538, 2228243, 0, 65538, 2293760, 0, 131076, 2293761, 0, 131077, 2293763, 0, 65538, 2293765, 0, 65538, 2293767, 0, 65538, 2293769, 0, 65538, 2293771, 0, 65538, 2293773, 0, 65538, 2293775, 0, 65538, 2293777, 0, 65538, 2293779, 0, 65538, 2359296, 0, 131076, 2359297, 0, 131077, 2359299, 0, 65538, 2359301, 0, 65538, 2359303, 0, 65538, 2359305, 0, 65538, 2359307, 0, 65538, 2359309, 0, 65538, 2359311, 0, 65538, 2359313, 0, 65538, 2359315, 0, 65538, 2424832, 0, 131076, 2424833, 0, 131077, 2424835, 0, 65538, 2424837, 0, 65538, 2424839, 0, 65538, 2424841, 0, 65538, 2424843, 0, 65538, 2424845, 0, 65538, 2424847, 0, 65538, 2424849, 0, 65538, 2424851, 0, 65538, 2490368, 0, 131076, 2490369, 0, 131077, 2490371, 0, 65538, 2490373, 0, 65538, 2490375, 0, 65538, 2490377, 0, 65538, 2490379, 0, 65538, 2490381, 0, 65538, 2490383, 0, 65538, 2490385, 0, 65538, 2490387, 0, 65538, 2555904, 0, 131076, 2555905, 0, 131077, 2555907, 0, 65538, 2555909, 0, 65538, 2555911, 0, 65538, 2555913, 0, 65538, 2555915, 0, 65538, 2555917, 0, 65538, 2555919, 0, 65538, 2555921, 0, 65538, 2555923, 0, 65538, 2621440, 0, 131076, 2621441, 0, 131077, 2621443, 0, 65538, 2621445, 0, 65538, 2621447, 0, 65538, 2621449, 0, 65538, 2621451, 0, 65538, 2621453, 0, 65538, 2621455, 0, 65538, 2621457, 0, 65538, 2621459, 0, 65538, 2686976, 0, 131076, 2686977, 0, 131077, 2686979, 0, 65538, 2686981, 0, 65538, 2686983, 0, 65538, 2686985, 0, 65538, 2686987, 0, 65538, 2686989, 0, 65538, 2686991, 0, 65538, 2686993, 0, 65538, 2686995, 0, 65538, 2752512, 0, 131076, 2752513, 0, 196610, 2752514, 0, 2, 2752515, 0, 65537, 2752517, 0, 65536, 2752518, 0, 2, 2752519, 0, 65537, 2752521, 0, 65536, 2752522, 0, 2, 2752523, 0, 65537, 2752525, 0, 65536, 2752526, 0, 2, 2752527, 0, 65537, 2752529, 0, 65536, 2752530, 0, 2, 2752531, 0, 65537, 2818048, 0, 131076, 2818049, 0, 131077, 2883584, 0, 131076, 2883585, 0, 196608, 2883586, 0, 196612, 2883587, 0, 196612, 2883588, 0, 196612, 2883589, 0, 196612, 2883590, 0, 196612, 2883591, 0, 196612, 2883592, 0, 196612, 2883593, 0, 196612, 2883594, 0, 196612, 2883595, 0, 196612, 2883596, 0, 196612, 2883597, 0, 196612, 2883598, 0, 196612, 2883599, 0, 196612, 2883600, 0, 196612, 2883601, 0, 196612, 2883602, 0, 196612, 2883603, 0, 8, 2949120, 0, 65543, 2949121, 0, 196613, 2949122, 0, 196613, 2949123, 0, 196613, 2949124, 0, 196613, 2949125, 0, 196613, 2949126, 0, 196613, 2949127, 0, 196613, 2949128, 0, 196613, 2949129, 0, 196613, 2949130, 0, 196613, 2949131, 0, 196613, 2949132, 0, 196613, 2949133, 0, 196613, 2949134, 0, 196613, 2949135, 0, 196613, 2949136, 0, 196613, 2949137, 0, 196613, 2949138, 0, 196613, 2949139, 0, 65544 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
+
+[node name="PlayerTrail" parent="." instance=ExtResource( 3 )]
+points = PoolVector2Array( 1280, 2784 )
+
+[node name="Starter" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1483.77, 2931.2 )
+rotation = 3.14159
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1248, 2784 )
+rotation = -3.14159
+base_speed = 500
+
+[node name="Obstacle-1" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-1" instance=ExtResource( 10 )]
+position = Vector2( 1184, 2656 )
+item_texture = ExtResource( 8 )
+item_type = "Green_Gear"
+
+[node name="Stopper" parent="Obstacle-1" instance=ExtResource( 9 )]
+position = Vector2( 800, 1888 )
+needs_item_type = "Green_Gear"
+needs_item_texture = ExtResource( 8 )
+
+[node name="Obstacle-2" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-2" instance=ExtResource( 10 )]
+position = Vector2( 672, 2656 )
+item_texture = ExtResource( 8 )
+item_type = "Green_Gear"
+
+[node name="Stopper" parent="Obstacle-2" instance=ExtResource( 9 )]
+position = Vector2( 928, 2016 )
+needs_item_type = "Green_Gear"
+needs_item_texture = ExtResource( 8 )
+
+[node name="Obstacle-3" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-3" instance=ExtResource( 10 )]
+position = Vector2( 160, 2656 )
+item_texture = ExtResource( 8 )
+item_type = "Green_Gear"
+
+[node name="Stopper" parent="Obstacle-3" instance=ExtResource( 9 )]
+position = Vector2( 416, 2016 )
+needs_item_type = "Green_Gear"
+needs_item_texture = ExtResource( 8 )
+
+[node name="Obstacle-4" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Obstacle-4" instance=ExtResource( 10 )]
+position = Vector2( 416, 2656 )
+item_texture = ExtResource( 11 )
+item_type = "Pink_Gear"
+
+[node name="Obstacle-5" type="Node2D" parent="."]
+position = Vector2( 512, 0 )
+
+[node name="Pickup" parent="Obstacle-5" instance=ExtResource( 10 )]
+position = Vector2( 416, 2656 )
+item_texture = ExtResource( 11 )
+item_type = "Pink_Gear"
+
+[node name="Stopper" parent="Obstacle-5" instance=ExtResource( 9 )]
+position = Vector2( 544, 1824 )
+needs_item_type = "Pink_Gear"
+needs_item_texture = ExtResource( 11 )
+
+[node name="Powerup" parent="." instance=ExtResource( 12 )]
+position = Vector2( 160, 1696 )
+item_texture = ExtResource( 13 )
+speed_bonus = 150

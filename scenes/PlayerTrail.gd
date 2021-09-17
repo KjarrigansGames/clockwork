@@ -22,7 +22,7 @@ func record_position():
 
     var distance = last.distance_to(player_pos)
     # Force some distance between points
-    if distance < 10:
+    if distance < 12:
         return
 
     add_point(player_pos)

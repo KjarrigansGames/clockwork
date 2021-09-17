@@ -11,16 +11,34 @@ func _process(delta):
         return
     
     if Input.is_action_just_pressed("ui_cancel"):
-            GlobalState.emit_signal("pause")  
-            $Tint.show()
-            $PauseMenu.show()
+        pause()
             
     remaining_time -= delta
     if remaining_time <= 0:
-        $Notice/Message.show()
-        GlobalState.emit_signal("pause")
+        game_over()
         
     $PanelContainer/HBoxContainer/TimeLeft.text = "Time Left: %d" % remaining_time
+
+func game_won():
+    pause()
+    $PauseMenu/VBoxContainer/Title.text = "Congratulations"
+    $PauseMenu/VBoxContainer/Subtitle.show()
+    $PauseMenu/VBoxContainer/Subtitle.text = "Remaining Time: %.2f" % remaining_time
+    
+    $PauseMenu/VBoxContainer/Continue.hide()
+
+func game_over():
+    pause()    
+    $PauseMenu/VBoxContainer/Title.text = "Game Over"
+    $PauseMenu/VBoxContainer/Continue.hide()
+    
+func pause():
+    GlobalState.emit_signal("pause")  
+    
+    $PauseMenu/VBoxContainer/Title.text = "Game Paused"
+    $PauseMenu/VBoxContainer/Continue.show()
+    $Tint.show()
+    $PauseMenu.show()    
 
 func _on_Continue_pressed():
     $Tint.hide()
