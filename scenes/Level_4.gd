@@ -2,7 +2,6 @@ extends Node2D
 
 export var time_to_finish : int
 export var standalone : bool = false
-var finished = false
 
 func _ready():
     if standalone:
@@ -19,13 +18,5 @@ func _ready():
         remove_child($CanvasModulate)  
         remove_child($PlayerTrail)
 
-func _process(_delta):
-    if not finished:
-        return
-        
-    $Player.move_back()
-    if not $PlayerTrail.has_pullback_points():
-        $Player/Camera2D/HUD.game_won()
-    
 func next_level():
-    finished = true
+    $Player/Camera2D/HUD.game_won()
